@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE install PUBLIC "-//Joomla! 1.6//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
 <extension version="1.6" type="template" client="site" method="upgrade">
-	<name>molajo-construct</name>
+	<name>construct</name>
 	<creationDate>June 13th, 2011</creationDate>
 	<author>Joomla Engineering</author>
 	<authorEmail>support@joomlaengineering.com</authorEmail>
@@ -84,8 +84,8 @@
 	</files>
 	
 	<languages>
-		<language tag="en-GB">language/en-GB/en-GB.tpl_molajo-construct.ini</language>
-		<language tag="en-GB">language/en-GB/en-GB.tpl_molajo-construct.sys.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.tpl_construct.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.tpl_construct.sys.ini</language>
 	</languages>
 	
 	<positions>		<position>analytics</position>
@@ -140,7 +140,7 @@
 	
 	<config>
 		<fields name="params">
-			<fieldset name="general" addfieldpath="/templates/molajo-construct/elements" >
+			<fieldset name="general" addfieldpath="/templates/construct/elements" >
 				<field name="enableSwitcher" type="radio" default="0" label="TPL_MOLAJO_CONSTRUCT_ENABLE_SWITCHER_LABEL" description="TPL_MOLAJO_CONSTRUCT_ENABLE_SWITCHER_DESC">
 					<option value="1">Show</option>
 					<option value="0">Hide</option>
@@ -157,7 +157,7 @@
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>				
-				<field name="customStyleSheet" type="filelist" default="molajo.css" label="TPL_MOLAJO_CONSTRUCT_CUSTOM_STYLE_SHEET_LABEL" directory="templates/molajo-construct/css" filter="\.css" exclude="core-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|ie6\.css|wireframe\.css|mobile\.css" description="TPL_MOLAJO_CONSTRUCT_CUSTOM_STYLE_SHEET_DESC" />
+				<field name="customStyleSheet" type="filelist" default="molajo.css" label="TPL_MOLAJO_CONSTRUCT_CUSTOM_STYLE_SHEET_LABEL" directory="templates/construct/css" filter="\.css" exclude="core-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|ie6\.css|wireframe\.css|mobile\.css" description="TPL_MOLAJO_CONSTRUCT_CUSTOM_STYLE_SHEET_DESC" />
 				<field name="setGeneratorTag" type="text" default="Molajo - Joomla! Based Distribution" label="Generator Meta Tag" description="Customize the generator meta tag output by your template." size="56" />		
 			</fieldset>
 			<fieldset name="IE">
