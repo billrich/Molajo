@@ -7,8 +7,8 @@
 */
 
 // Call the Construct Template Helper Class
-if (JFile::exists(dirname(__FILE__).'/elements/template.php')) {
-    include dirname(__FILE__).'/elements/template.php';
+if (JFile::exists(dirname(__FILE__).'/helper.php')) {
+    include dirname(__FILE__).'/helper.php';
 }
 
 // To enable use of site configuration
