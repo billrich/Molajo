@@ -1,6 +1,6 @@
 <?php defined('_JEXEC') or die;
 /**
-* @package		Template Framework for Joomla! 1.5
+* @package		Template Framework for Joomla! 1.6+
 * @author		Joomla Engineering http://joomlaengineering.com
 * @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
@@ -31,7 +31,7 @@ if (( $mdetect && $isMobile ) || ( $mdetect && $detectTablets && $isTablet )) {
 	}
 }
 
-// If mobile detection is off, or visitor is not a mobile device, check for alternate index file and load it if it exists
+// If mobile detection is off, or visitor is not a mobile device, check for layout override and load it if it exists
 $results = $layoutOverride->getIncludeFile ();
 
 if ($results) {
@@ -46,7 +46,7 @@ if ($results) {
 <jdoc:include type="head" />
 </head>
 
-<body class="<?php echo $columnLayout; if($useStickyFooter) echo ' sticky-footer'; echo ' '.$currentComponent; if($articleId) echo ' article-'.$articleId; if ($itemId) echo ' item-'.$itemId; if($catId) echo ' category-'.$catId; if($sectionId) echo ' section-'.$sectionId; ?>">
+<body class="<?php echo $columnLayout; if($useStickyFooter) echo ' sticky-footer'; echo ' '.$currentComponent; if($articleId) echo ' article-'.$articleId; if ($itemId) echo ' item-'.$itemId; if($catId) echo ' category-'.$catId; ?>">
 
 	<div id="footer-push">
 			<a id="page-top" name="page-top"></a>
@@ -88,8 +88,8 @@ if ($results) {
 						</div><!-- end header-above-6 -->								
 					<?php endif; ?>
 				</div><!-- end header-above -->
-			<?php endif; ?>				
-		
+			<?php endif; ?>
+
 		<div id="header" class="clear clearfix">
 			<div class="gutter clearfix">
 
@@ -107,18 +107,6 @@ if ($results) {
 						<?php if($articleId)	echo '<li>article-'.$articleId.'</li>'; ?>
 						<?php if($itemId)		echo '<li>item-'.$itemId.'</li>'; ?>
 						<?php if($catId)		echo '<li>category-'.$catId.'</li>'; ?>
-						<?php if($sectionId) 	echo '<li>section-'.$sectionId.'</li>'; ?>
-						<?php if($catId) {							
-								echo '<li>Parent Category '.$parentCategory.'</li>';							
-								echo '<li>Ancestor Categories:';		
-								$results = getAncestorCategories($catId);
-									if (count($results) > 0) {
-										foreach ($results as $item) {
-											echo ' '.$item->id.',';
-										}			
-									}
-								echo'</li>';
-								} ?>
 					</ul>
 				<?php endif; ?>	
 
@@ -126,7 +114,7 @@ if ($results) {
 				
 				<?php if ($this->countModules('header')) : ?>
 					<jdoc:include type="modules" name="header" style="jexhtml" />	
-				<?php endif; ?>		
+				<?php endif; ?>
 				
 				<ul id="access">
 				  <li>Jump to:</li>
@@ -138,7 +126,7 @@ if ($results) {
 					<li><a href="<?php $url->setFragment('additional'); echo $url->toString();?>" class="to-additional">Additional Information</a></li>
 				  <?php endif; ?>
 				</ul>				
-				
+
 				<?php if ($enableSwitcher) : ?>
 					<ul id="style-switch">
 						<li><a href="#" onclick="setActiveStyleSheet('wireframe'); return false;" title="Wireframe">Wireframe</a></li>
@@ -159,31 +147,31 @@ if ($results) {
 							<jdoc:include type="modules" name="header-below-1" style="jexhtml" module-class="gutter"/>
 						</div><!-- end header-below-1 -->								
 					<?php endif; ?>
-					
+
 					<?php if ($this->countModules('header-below-2')) : ?>
 						<div id="header-below-2" class="<?php echo $headerBelowClass ?>">
 							<jdoc:include type="modules" name="header-below-2" style="jexhtml" module-class="gutter"/>
 						</div><!-- end header-below-2 -->
 					<?php endif; ?>
-					
+
 					<?php if ($this->countModules('header-below-3')) : ?>
 						<div id="header-below-3" class="<?php echo $headerBelowClass ?>">
 							<jdoc:include type="modules" name="header-below-3" style="jexhtml" module-class="gutter"/>
 						</div><!-- end header-below-3 -->
 					<?php endif; ?>
-					
+
 					<?php if ($this->countModules('header-below-4')) : ?>
 						<div id="header-below-4" class="<?php echo $headerBelowClass ?>">
 							<jdoc:include type="modules" name="header-below-4" style="jexhtml" module-class="gutter"/>
 						</div><!-- end header-below-4 -->
 					<?php endif; ?>
-					
+
 					<?php if ($this->countModules('header-below-5')) : ?>
 						<div id="header-below-5" class="<?php echo $headerBelowClass ?>">
 							<jdoc:include type="modules" name="header-below-5" style="jexhtml" module-class="gutter"/>
 						</div><!-- end header-below-5 -->
 					<?php endif; ?>
-					
+
 					<?php if ($this->countModules('header-below-6')) : ?>
 						<div id="header-below-6" class="<?php echo $headerBelowClass ?>">
 							<jdoc:include type="modules" name="header-below-6" style="jexhtml" module-class="gutter"/>
@@ -211,31 +199,31 @@ if ($results) {
 								<jdoc:include type="modules" name="nav-below-1" style="jexhtml" module-class="gutter" />
 							</div><!-- end nav-below-1 -->								
 						<?php endif; ?>
-						
+
 						<?php if ($this->countModules('nav-below-2')) : ?>
 							<div id="nav-below-2" class="<?php echo $navBelowClass ?>">
 								<jdoc:include type="modules" name="nav-below-2" style="jexhtml" module-class="gutter" />
 							</div><!-- end nav-below-2 -->
 						<?php endif; ?>
-						
+
 						<?php if ($this->countModules('nav-below-3')) : ?>
 							<div id="nav-below-3" class="<?php echo $navBelowClass ?>">
 								<jdoc:include type="modules" name="nav-below-3" style="jexhtml" module-class="gutter" />
 							</div><!-- end nav-below-3 -->
 						<?php endif; ?>
-						
+
 						<?php if ($this->countModules('nav-below-4')) : ?>
 							<div id="nav-below-4" class="<?php echo $navBelowClass ?>">
 								<jdoc:include type="modules" name="nav-below-4" style="jexhtml" module-class="gutter" />
 							</div><!-- end nav-below-4 -->
 						<?php endif; ?>
-						
+
 						<?php if ($this->countModules('nav-below-5')) : ?>
 							<div id="nav-below-5" class="<?php echo $navBelowClass ?>">
 								<jdoc:include type="modules" name="nav-below-5" style="jexhtml" module-class="gutter" />
 							</div><!-- end nav-below-5 -->
 						<?php endif; ?>
-						
+
 						<?php if ($this->countModules('nav-below-6')) : ?>
 							<div id="nav-below-6" class="<?php echo $navBelowClass ?>">
 								<jdoc:include type="modules" name="nav-below-6" style="jexhtml" module-class="gutter" />
@@ -243,7 +231,7 @@ if ($results) {
 						<?php endif; ?>													
 					</div><!-- end nav-below -->
 				<?php endif; ?>
-				
+			
 				<div id="load-first" class="clearfix">
 					<a id="content" name="content"></a>     
 					<div id="content-main">
@@ -290,7 +278,9 @@ if ($results) {
 							<?php endif; ?>
 					  
 							<?php if ($this->getBuffer('message')) : ?>
-								<jdoc:include type="message" />
+								<div class="error">
+									<jdoc:include type="message" />
+								</div>
 							<?php endif; ?>
 
 							<jdoc:include type="component" />
@@ -419,9 +409,9 @@ if ($results) {
     
 	<div id="footer" class="clear clearfix">
 		<div class="gutter clearfix">
-			
+
 			<a id="to-page-top" href="<?php $url->setFragment('page-top'); echo $url->toString();?>" class="to-additional">Back to Top</a>
-			
+
 			<?php if ($this->countModules('syndicate')) : ?>			
 			<div id="syndicate">
 				<jdoc:include type="modules" name="syndicate" />
@@ -445,4 +435,4 @@ if ($results) {
 	
 	</body>
 </html>
-<?php }?>
+<?php }

@@ -1,6 +1,6 @@
 <?php defined('_JEXEC') or die;
 /**
-* @package		Template Framework for Joomla! 1.5
+* @package		Template Framework for Joomla! 1.6+
 * @author		Joomla Engineering http://joomlaengineering.com
 * @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
@@ -69,20 +69,8 @@
 						<?php if($articleId)	echo '<li>article-'.$articleId.'</li>'; ?>
 						<?php if($itemId)		echo '<li>item-'.$itemId.'</li>'; ?>
 						<?php if($catId)		echo '<li>category-'.$catId.'</li>'; ?>
-						<?php if($sectionId) 	echo '<li>section-'.$sectionId.'</li>'; ?>
-						<?php if($isOnward && $catId && ($inheritStyle || $inheritLayout)) {							
-								echo '<li>Parent Category '.$parentCategory.'</li>';							
-								echo '<li>Ancestor Categories:';		
-								$results = getAncestorCategories($catId);
-									if (count($results) > 0) {
-										foreach ($results as $item) {
-											echo ' '.$item->id.',';
-										}			
-									}
-								echo'</li>';
-								} ?>
 					</ul>
-				<?php endif; ?>	
+				<?php endif; ?>
 				
 				<h1 id="logo"><a href="<?php echo $this->baseurl ?>/" title="<?php echo $app->getCfg('sitename');?>"><?php echo $app->getCfg('sitename');?></a></h1>
 				
@@ -147,7 +135,7 @@
 					<?php endif; ?>											
 				</div><!-- end header-below -->
 			<?php endif; ?>
-	  
+		
 			<div id="content-container" class="clear clearfix">    
 
 				<?php if ($navBelowCount) : ?>
