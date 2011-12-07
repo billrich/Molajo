@@ -1,5 +1,7 @@
 <?php
 /**
+ * Testing a commit on the doctrine branch
+ * 
  * @package     Molajo
  * @subpackage  Bootstrap
  * @copyright   Copyright (C) 2012 Amy Stephen. All rights reserved.
